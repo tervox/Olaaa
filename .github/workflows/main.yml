@@ -13,6 +13,10 @@ jobs:
         with:
           java-version: '11'
           distribution: 'temurin'
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+      - name: Install NDK
+        run: echo "y" | sdkmanager "ndk;21.4.7075529"
       - name: Build APK
         run: |
           chmod +x gradlew
